@@ -4,65 +4,144 @@ body {
     padding: 0;
     text-align: center;
     background-color: #e0e0e0; /* Fondo gris claro */
+    line-height: 1.6; /* Mejora la legibilidad del texto */
+    color: #333; /* Color de texto base para mejor contraste */
 }
 
 /* Section 1 - Título llamativo */
 .section-1 {
     background-color: #2b6cb0; /* Azul más oscuro y contrastante */
     color: white;
-    padding: 50px 20px;
+    padding: 40px 15px; /* Padding ajustado para móviles */
 }
 
 .section-1 h1 {
-    font-size: 3rem;
+    font-size: 2.5rem; /* Tamaño de fuente inicial para móviles */
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px; /* Ajuste de letter-spacing para móviles */
+    margin-bottom: 15px; /* Espacio debajo del título */
 }
 
 /* Section 2 - Imágenes centradas con inputs */
 .section-2 {
-    padding: 40px 20px;
+    padding: 30px 15px; /* Padding ajustado para móviles */
     background-color: #f0f0f0; /* Un gris ligeramente más claro para la sección para añadir contraste */
 }
 
 .image-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Por defecto en columna para móviles */
     align-items: center;
-    gap: 20px;
+    gap: 20px; /* Espacio entre elementos */
+    margin-bottom: 30px; /* Espacio antes del input-container */
 }
 
 .image-container img {
-    width: 100%;
-    max-width: 300px;
+    width: 100%; /* Las imágenes ocupan el 100% del ancho del contenedor en móviles */
+    max-width: 350px; /* Un poco más grandes en general */
+    height: auto; /* Mantiene la proporción de la imagen */
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sutil sombra para profundidad */
 }
 
 .input-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px; /* Espacio entre inputs */
     margin-top: 20px;
+    padding: 0 10px; /* Pequeño padding horizontal para móviles */
 }
 
-.input-container input {
-    width: 80%;
-    max-width: 400px;
-    padding: 10px;
-    border: 2px solid #a0a0a0; /* Borde de input más grisáceo */
-    border-radius: 5px;
+.input-container input,
+.input-container textarea { /* Aseguramos que el textarea también tenga el estilo */
+    width: 100%; /* Ocupan el 100% del ancho disponible en móviles */
+    max-width: 450px; /* Máximo ancho para inputs */
+    padding: 12px; /* Aumentar el padding para inputs para mejor interacción táctil */
+    border: 1px solid #b0b0b0; /* Borde más sutil para inputs */
+    border-radius: 8px; /* Bordes más redondeados */
     font-size: 1rem;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
 }
 
-/* Diseño responsivo */
-@media (max-width: 600px) {
+.input-container textarea {
+    min-height: 120px; /* Altura mínima para el área de texto */
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+/* Estilos para el botón de contacto (si se añade un formulario) */
+.btn-primary {
+    background-color: #2b6cb0;
+    border-color: #2b6cb0;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1a4d80;
+    border-color: #1a4d80;
+}
+
+/* --- Media Queries --- */
+
+/* Dispositivos pequeños (ej. tabletas en portrait, > 480px) */
+@media (min-width: 480px) {
     .section-1 h1 {
-        font-size: 2rem;
+        font-size: 3rem;
+    }
+    .image-container img {
+        max-width: 400px;
+    }
+}
+
+/* Tabletas y Laptops pequeñas (> 768px) */
+@media (min-width: 768px) {
+    .section-1 {
+        padding: 60px 40px;
     }
 
-    .input-container input {
-        width: 100%;
+    .section-1 h1 {
+        font-size: 4rem;
+        letter-spacing: 2px;
+    }
+
+    .section-2 {
+        padding: 50px 40px;
+    }
+
+    .image-container {
+        flex-direction: row; /* Imágenes en fila en pantallas más grandes */
+        justify-content: center; /* Centra las imágenes horizontalmente */
+        gap: 40px; /* Mayor espacio entre imágenes */
+    }
+
+    .image-container img {
+        width: 45%; /* Cada imagen ocupa casi la mitad del contenedor */
+        max-width: 450px; /* Limita el tamaño máximo */
+    }
+
+    .input-container {
+        padding: 0; /* Quita el padding horizontal extra */
+    }
+}
+
+/* Desktops y pantallas grandes (> 1024px) */
+@media (min-width: 1024px) {
+    .section-1 h1 {
+        font-size: 5rem;
+    }
+
+    .image-container img {
+        max-width: 500px;
+    }
+
+    .input-container input,
+    .input-container textarea {
+        max-width: 600px; /* Aumenta el ancho máximo para pantallas grandes */
     }
 }
